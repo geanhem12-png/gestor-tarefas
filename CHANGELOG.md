@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.0]
+### Adicionado
+- Interface web acessível (index.html) com landmarks e WAI-ARIA
+
 ## [1.0.1]
 ### Corrigido
 - Validação de descrições vazias ao adicionar tarefas
