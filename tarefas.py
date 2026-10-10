@@ -18,6 +18,8 @@ def guardar(tarefas):
 
 
 def adicionar(descricao):
+    if not descricao.strip():
+        raise ValueError("A descrição não pode estar vazia.")
     tarefas = carregar()
     tarefas.append({"descricao": descricao, "concluida": False})
     guardar(tarefas)
