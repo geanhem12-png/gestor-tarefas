@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.5.0]
+### Adicionado
+- Interface web acessível (index.html) com landmarks semânticos e WAI-ARIA
+
 ## [1.4.0]
 ### Adicionado
 - Testes unitários (python -m unittest -v)
