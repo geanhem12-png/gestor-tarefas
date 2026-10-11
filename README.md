@@ -26,7 +26,7 @@ python -m unittest -v
 ```
 
 ## Página web acessível
-`index.html` é uma interface web com HTML semântico (`header`, `nav`, `main`, `footer`, `section`) e atributos WAI-ARIA (diálogo modal, mensagens de estado e erro, formulário com `label`).
+`index.html` é uma interface web com HTML semântico (`header`, `nav`, `main`, `footer`, `section`) e atributos WAI-ARIA (diálogo modal, mensagens de estado e erro, formulário com `label`). Inclui modo escuro, automático (`prefers-color-scheme`) e manual (botão no cabeçalho), com rácios de contraste WCAG.
 
 ## Estrutura do projeto
 ```
