@@ -8,9 +8,10 @@ Aplicação de linha de comandos, em Python, para gerir tarefas pessoais. Projet
 
 ## Instalação
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/geanhem12-png/gestor-tarefas.git
 cd gestor-tarefas
 ```
+O projeto usa apenas a biblioteca padrão do Python, por isso não há dependências a instalar nem build.
 
 ## Utilização
 ```bash
@@ -19,13 +20,19 @@ python main.py listar
 python main.py concluir 1
 ```
 
+## Testes
+```bash
+python -m unittest -v
+```
+
 ## Estrutura do projeto
 ```
 gestor-tarefas/
-├── main.py       # interface de linha de comandos
-├── tarefas.py    # criação e armazenamento de tarefas
-├── listar.py     # listar e concluir tarefas
-├── CHANGELOG.md  # histórico de versões
+├── main.py            # interface de linha de comandos
+├── tarefas.py         # criação e armazenamento de tarefas
+├── listar.py          # listar e concluir tarefas
+├── test_tarefas.py    # testes unitários
+├── CHANGELOG.md       # histórico de versões
 └── README.md
 ```
 
@@ -43,6 +50,8 @@ Segue o padrão [Conventional Commits](https://www.conventionalcommits.org/):
 - `feat:` nova funcionalidade (sobe MINOR)
 - `fix:` correção de falha (sobe PATCH)
 - `docs:` documentação
+- `test:` testes
+- `build:` sistema de build
 - `chore:` tarefas de manutenção
 
 ## Versionamento semântico
