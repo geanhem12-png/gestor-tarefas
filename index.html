@@ -21,6 +21,15 @@
 </header>
 
 <main id="conteudo">
+  <picture>
+    <source type="image/webp"
+            srcset="/img/hero-480.webp 480w, /img/hero-800.webp 800w, /img/hero-1280.webp 1280w"
+            sizes="(min-width: 42rem) 40rem, calc(100vw - 2rem)">
+    <img class="hero" src="/img/hero-800.jpg"
+         srcset="/img/hero-480.jpg 480w, /img/hero-800.jpg 800w, /img/hero-1280.jpg 1280w"
+         sizes="(min-width: 42rem) 40rem, calc(100vw - 2rem)"
+         width="1280" height="512" alt="" fetchpriority="high" decoding="async">
+  </picture>
   <section aria-labelledby="titulo-lista">
     <h2 id="titulo-lista">As minhas tarefas</h2>
     <button type="button" id="abrir" aria-haspopup="dialog">Adicionar tarefa</button>
@@ -34,7 +43,7 @@
 </main>
 
 <footer>
-  <p>Gestor de Tarefas, versão 1.7.0.</p>
+  <p>Gestor de Tarefas, versão 1.8.0.</p>
 </footer>
 
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal" hidden>
