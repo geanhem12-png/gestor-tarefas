@@ -3,3 +3,5 @@ __pycache__/
 tarefas.json
 .venv/
 *.zip
+node_modules/
+dist/
