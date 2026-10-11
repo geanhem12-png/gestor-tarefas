@@ -5,13 +5,17 @@ Aplicação de linha de comandos, em Python, para gerir tarefas pessoais. Projet
 ## Requisitos
 - Python 3.8 ou superior
 - Git
+- Node.js 18 ou superior (apenas para a página web e o build)
 
 ## Instalação
 ```bash
 git clone https://github.com/geanhem12-png/gestor-tarefas.git
 cd gestor-tarefas
 ```
-O projeto usa apenas a biblioteca padrão do Python, por isso não há dependências a instalar nem build.
+A aplicação de linha de comandos usa apenas a biblioteca padrão do Python. Para a página web:
+```bash
+npm install
+```
 
 ## Utilização
 ```bash
@@ -28,6 +32,14 @@ python -m unittest -v
 ## Página web acessível
 `index.html` é uma interface web com HTML semântico (`header`, `nav`, `main`, `footer`, `section`) e atributos WAI-ARIA (diálogo modal, mensagens de estado e erro, formulário com `label`). Inclui modo escuro, automático (`prefers-color-scheme`) e manual (botão no cabeçalho), com rácios de contraste WCAG.
 
+## Build de produção
+O [Vite](https://vite.dev) empacota e minifica o CSS e o JavaScript da página web (configuração em `vite.config.js`):
+```bash
+npm run dev       # servidor de desenvolvimento
+npm run build     # build de produção na pasta dist/
+npm run preview   # testar a build
+```
+
 ## Estrutura do projeto
 ```
 gestor-tarefas/
@@ -36,6 +48,9 @@ gestor-tarefas/
 ├── listar.py          # listar e concluir tarefas
 ├── test_tarefas.py    # testes unitários
 ├── index.html         # página web acessível
+├── src/               # estilo.css e app.js
+├── vite.config.js     # configuração do build
+├── package.json
 ├── CHANGELOG.md       # histórico de versões
 └── README.md
 ```
