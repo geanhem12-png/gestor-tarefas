@@ -43,6 +43,13 @@ npm run preview   # testar a build
 ## Imagens otimizadas
 A ilustração da página está em `public/img/`, em três larguras (480, 800 e 1280 px) e em dois formatos: WebP, escolhido pelo browser quando suporta, e JPEG como alternativa. O elemento `<picture>` com `srcset` e `sizes` faz o browser descarregar só a largura de que precisa; `width` e `height` reservam o espaço e evitam saltos de layout. A imagem é decorativa (`alt=""`) e, por ser o elemento principal no topo, não usa `loading="lazy"` e tem `fetchpriority="high"`.
 
+## Deploy
+A página é publicada no **GitHub Pages**, em https://geanhem12-png.github.io/gestor-tarefas/, por um fluxo do GitHub Actions (`.github/workflows/deploy.yml`). A cada fusão em `main` o fluxo instala as dependências (`npm ci`), corre os testes (`python3 -m unittest -v`), faz o build com Vite, verifica o resultado e publica a pasta `dist/`.
+
+Configuração feita uma única vez no repositório: *Settings > Pages > Source: GitHub Actions*. O Vite usa `base: "./"` para que os caminhos funcionem na subpasta `/gestor-tarefas/`.
+
+Para repetir a publicação sem alterar código: separador *Actions > Deploy para o GitHub Pages > Run workflow*.
+
 ## Estrutura do projeto
 ```
 gestor-tarefas/
@@ -55,6 +62,7 @@ gestor-tarefas/
 ├── public/img/        # imagens otimizadas (WebP e JPEG)
 ├── vite.config.js     # configuração do build
 ├── package.json
+├── .github/workflows/ # deploy automático (GitHub Actions)
 ├── CHANGELOG.md       # histórico de versões
 └── README.md
 ```
