@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.7.1]
+### Corrigido
+- Removido ficheiro criado por engano no repositório
+
 ## [1.7.0]
 ### Adicionado
 - Build de produção com Vite (npm run build) e minificação de CSS e JS
