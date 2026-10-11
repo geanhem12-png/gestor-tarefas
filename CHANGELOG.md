@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.8.0]
+### Adicionado
+- Ilustração otimizada na página: WebP com alternativa JPEG, três larguras (480, 800 e 1280 px) e `<picture>` com `srcset` e `sizes`
+
 ## [1.7.1]
 ### Corrigido
 - Removido ficheiro criado por engano no repositório
