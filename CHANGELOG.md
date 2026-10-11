@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.7.0]
+### Adicionado
+- Build de produção com Vite (npm run build) e minificação de CSS e JS
+
 ## [1.6.0]
 ### Adicionado
 - Modo escuro (automático e manual)
