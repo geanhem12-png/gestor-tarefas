@@ -25,6 +25,9 @@ python main.py concluir 1
 python -m unittest -v
 ```
 
+## Página web acessível
+`index.html` é uma interface web com HTML semântico (`header`, `nav`, `main`, `footer`, `section`) e atributos WAI-ARIA (diálogo modal, mensagens de estado e erro, formulário com `label`).
+
 ## Estrutura do projeto
 ```
 gestor-tarefas/
@@ -32,6 +35,7 @@ gestor-tarefas/
 ├── tarefas.py         # criação e armazenamento de tarefas
 ├── listar.py          # listar e concluir tarefas
 ├── test_tarefas.py    # testes unitários
+├── index.html         # página web acessível
 ├── CHANGELOG.md       # histórico de versões
 └── README.md
 ```
