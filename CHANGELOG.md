@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0]
+### Adicionado
+- Deploy automático no GitHub Pages com GitHub Actions: a cada fusão em `main`, o fluxo corre os testes, faz o build com Vite e publica a pasta `dist/`
+- Secção "Deploy" no README com o endereço público e o processo de configuração
+
+### Alterado
+- `vite.config.js` usa `base: "./"` e as imagens usam caminhos relativos, para a página funcionar na subpasta `/gestor-tarefas/`
+
 ## [1.8.0]
 ### Adicionado
 - Ilustração otimizada na página: WebP com alternativa JPEG, três larguras (480, 800 e 1280 px) e `<picture>` com `srcset` e `sizes`
