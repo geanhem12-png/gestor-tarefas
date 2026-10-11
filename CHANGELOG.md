@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.6.0]
+### Adicionado
+- Modo escuro (automático e manual)
+### Corrigido
+- Contraste do contorno de foco no tema claro
+
 ## [1.5.0]
 ### Adicionado
 - Interface web acessível (index.html) com landmarks semânticos e WAI-ARIA
