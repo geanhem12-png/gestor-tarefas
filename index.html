@@ -5,20 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gestor de Tarefas</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 0; color: #1a1a1a; background: #f4f6f8; }
+  :root {
+    --fundo: #f4f6f8; --superficie: #ffffff; --texto: #1a1a1a;
+    --ligacao: #0b5cad; --botao-fundo: #0b5cad; --botao-texto: #ffffff;
+    --erro: #b00020; --foco: #8a4b00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fundo: #121212; --superficie: #1e1e1e; --texto: #f0f0f0;
+      --ligacao: #8ab8ff; --botao-fundo: #8ab8ff; --botao-texto: #0a0a0a;
+      --erro: #ff8a80; --foco: #ffb347;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fundo: #121212; --superficie: #1e1e1e; --texto: #f0f0f0;
+    --ligacao: #8ab8ff; --botao-fundo: #8ab8ff; --botao-texto: #0a0a0a;
+    --erro: #ff8a80; --foco: #ffb347;
+  }
+  body { font-family: Arial, sans-serif; margin: 0; color: var(--texto); background: var(--fundo); }
   header, main, footer { max-width: 40rem; margin: 0 auto; padding: 1rem; }
-  header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
   nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
-  a { color: #0b5cad; }
+  a { color: var(--ligacao); }
   .saltar { position: absolute; left: -999px; }
-  .saltar:focus { left: 1rem; top: 1rem; background: #fff; padding: .5rem; }
-  button { font-size: 1rem; padding: .5rem 1rem; cursor: pointer; }
-  :focus-visible { outline: 3px solid #f5a300; outline-offset: 2px; }
+  .saltar:focus { left: 1rem; top: 1rem; background: var(--superficie); padding: .5rem; }
+  button { font-size: 1rem; padding: .5rem 1rem; cursor: pointer; border: 2px solid var(--botao-fundo);
+           background: var(--botao-fundo); color: var(--botao-texto); border-radius: .25rem; }
+  button#cancelar, #tema { background: transparent; color: var(--texto); border-color: var(--texto); }
+  :focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
   #modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; }
   #modal[hidden] { display: none; }
-  #formulario { background: #fff; padding: 1.5rem; border-radius: .5rem; width: 90%; max-width: 24rem; }
-  #formulario input { width: 100%; box-sizing: border-box; font-size: 1rem; padding: .5rem; margin: .5rem 0; }
-  #erro { color: #b00020; min-height: 1.2rem; }
+  #formulario { background: var(--superficie); color: var(--texto); padding: 1.5rem; border-radius: .5rem; width: 90%; max-width: 24rem; }
+  #formulario input { width: 100%; box-sizing: border-box; font-size: 1rem; padding: .5rem; margin: .5rem 0;
+                      background: var(--superficie); color: var(--texto); border: 2px solid var(--texto); }
+  #erro { color: var(--erro); min-height: 1.2rem; }
   #lista { padding-left: 1.2rem; }
   .feita { text-decoration: line-through; }
 </style>
@@ -34,6 +54,7 @@
       <li><a href="#sobre">Sobre</a></li>
     </ul>
   </nav>
+  <button type="button" id="tema" aria-pressed="false">Modo escuro</button>
 </header>
 
 <main id="conteudo">
@@ -50,7 +71,7 @@
 </main>
 
 <footer>
-  <p>Gestor de Tarefas, versão 1.5.0.</p>
+  <p>Gestor de Tarefas, versão 1.6.0.</p>
 </footer>
 
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal" hidden>
@@ -73,6 +94,16 @@
   const estado = document.getElementById("estado");
   const lista = document.getElementById("lista");
   const abrir = document.getElementById("abrir");
+  const botaoTema = document.getElementById("tema");
+
+  function aplicarTema(escuro) {
+    document.documentElement.dataset.theme = escuro ? "dark" : "light";
+    botaoTema.setAttribute("aria-pressed", String(escuro));
+  }
+  aplicarTema(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  botaoTema.addEventListener("click", () => {
+    aplicarTema(document.documentElement.dataset.theme !== "dark");
+  });
 
   function desenhar() {
     lista.innerHTML = "";
