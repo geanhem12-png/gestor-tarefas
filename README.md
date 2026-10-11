@@ -40,6 +40,9 @@ npm run build     # build de produção na pasta dist/
 npm run preview   # testar a build
 ```
 
+## Imagens otimizadas
+A ilustração da página está em `public/img/`, em três larguras (480, 800 e 1280 px) e em dois formatos: WebP, escolhido pelo browser quando suporta, e JPEG como alternativa. O elemento `<picture>` com `srcset` e `sizes` faz o browser descarregar só a largura de que precisa; `width` e `height` reservam o espaço e evitam saltos de layout. A imagem é decorativa (`alt=""`) e, por ser o elemento principal no topo, não usa `loading="lazy"` e tem `fetchpriority="high"`.
+
 ## Estrutura do projeto
 ```
 gestor-tarefas/
@@ -49,6 +52,7 @@ gestor-tarefas/
 ├── test_tarefas.py    # testes unitários
 ├── index.html         # página web acessível
 ├── src/               # estilo.css e app.js
+├── public/img/        # imagens otimizadas (WebP e JPEG)
 ├── vite.config.js     # configuração do build
 ├── package.json
 ├── CHANGELOG.md       # histórico de versões

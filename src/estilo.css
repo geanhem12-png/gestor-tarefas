@@ -34,3 +34,4 @@
   #erro { color: var(--erro); min-height: 1.2rem; }
   #lista { padding-left: 1.2rem; }
   .feita { text-decoration: line-through; }
+  .hero { display: block; width: 100%; height: auto; border-radius: .5rem; margin-bottom: 1rem; }
